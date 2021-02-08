@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/tab01_1"
+        android:title="검색"
+        android:icon="@drawable/ic_person_24"/>
+
+</menu>
