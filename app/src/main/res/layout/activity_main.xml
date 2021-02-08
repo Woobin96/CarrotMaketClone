@@ -17,7 +17,12 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        app:labelVisibilityMode="labeled"
+        app:itemTextColor="@color/bnv"
+        app:itemIconTint="@color/bnv"
+        android:background="@drawable/bnv"
+        app:menu="@menu/bnv"/>
 
 
 
