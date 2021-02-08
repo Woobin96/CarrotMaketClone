@@ -1,6 +1,5 @@
 package com.wooeun18.carrotmaketclone;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -8,7 +7,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class Tab01 extends Fragment {
+public class Tab02 extends Fragment {
 
     FloatingActionButton fab;
     @Override
@@ -29,7 +27,7 @@ public class Tab01 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.tab01, container, false);
+        View view= inflater.inflate(R.layout.tab02, container, false);
         Toolbar toolbar= view.findViewById(R.id.toolbar);
         fab= view.findViewById(R.id.fab);
         return view;

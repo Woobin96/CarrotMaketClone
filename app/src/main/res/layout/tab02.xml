@@ -28,6 +28,6 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="12dp"
         android:backgroundTint="#2196F3"
-        android:src="@drawable/ic_baseline_add_24"/>
+        android:src="@drawable/ic_pen_24"/>
 
 </RelativeLayout>

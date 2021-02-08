@@ -34,9 +34,30 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment= null;
 
                 switch (item.getItemId()){
+
                     case R.id.tab01 :
+                        fragment= new Tab01();
+                        break;
+
+                    case R.id.tab02 :
+                        fragment= new Tab02();
+                        break;
+
+                    case R.id.tab03 :
+                        fragment= new Tab03();
+                        break;
+
+                    case R.id.tab04 :
+                        fragment= new Tab04();
+                        break;
+
+                    case R.id.tab05 :
+                        fragment= new Tab05();
                         break;
                 }
+
+                tran.replace(R.id.container, fragment);
+                tran.commit();
 
                 return true;
             }
