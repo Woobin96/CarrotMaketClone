@@ -1,5 +1,6 @@
 package com.wooeun18.carrotmaketclone;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,10 +21,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class Tab01 extends Fragment {
 
     FloatingActionButton fab;
+    Context context;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
     }
 
     @Nullable
@@ -49,10 +53,10 @@ public class Tab01 extends Fragment {
         switch (id){
             case R.id.tab01_1 :
                 break;
-            case R.id.tab01_2:
+            case R.id.tab01_2 :
+
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
