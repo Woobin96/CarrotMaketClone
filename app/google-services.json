@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "439631100237",
+    "firebase_url": "https://woobinlogin-default-rtdb.firebaseio.com",
+    "project_id": "woobinlogin",
+    "storage_bucket": "woobinlogin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439631100237:android:a360e44a5017b8d0309f04",
+        "android_client_info": {
+          "package_name": "com.wooeun18.carrotmaketclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439631100237-rdtitvjhli26nl6uqovmqkrpukb6tvbh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4aNuubVKcYOt-DD-lbn8zoWlUrApeRb8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439631100237-rdtitvjhli26nl6uqovmqkrpukb6tvbh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
