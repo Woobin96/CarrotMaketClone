@@ -14,20 +14,20 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bnv"
-            app:menu="@menu/tab01_menu">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="동네생활"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#FF333333"/>
+            android:backgroundTint="@color/white"
+            app:menu="@menu/tab01_menu"
+            app:title="동네 생활">
 
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/appbar"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"/>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -14,15 +14,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bnv">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="채팅"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#FF333333"/>
+            android:background="@drawable/bnv"
+            app:title="채팅">
 
         </androidx.appcompat.widget.Toolbar>
 

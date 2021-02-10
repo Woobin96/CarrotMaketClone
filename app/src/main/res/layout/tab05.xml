@@ -14,8 +14,11 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bnv"
-            app:menu="@menu/tab01_menu"/>
+            android:backgroundTint="@color/white"
+            app:menu="@menu/tab05"
+            app:title="내 설정">
+
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 

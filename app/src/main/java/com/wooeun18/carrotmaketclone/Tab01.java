@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
@@ -21,13 +22,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class Tab01 extends Fragment {
 
     FloatingActionButton fab;
-    Context context;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-
     }
 
     @Nullable
@@ -35,6 +34,7 @@ public class Tab01 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.tab01, container, false);
         Toolbar toolbar= view.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         fab= view.findViewById(R.id.fab);
         return view;
     }
@@ -52,13 +52,16 @@ public class Tab01 extends Fragment {
         int id= item.getItemId();
         switch (id){
             case R.id.tab01_1 :
+                Intent intent= new Intent(getActivity(), FABActivity.class);
+                startActivity(intent);
+                Toast.makeText(getActivity(), "aaa", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tab01_2 :
-
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
 
 
