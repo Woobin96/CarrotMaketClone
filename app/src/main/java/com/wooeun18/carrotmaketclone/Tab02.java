@@ -52,7 +52,7 @@ public class Tab02 extends Fragment {
             case R.id.tab01_1 :
                 break;
             case R.id.tab01_2:
-                Intent intent= new Intent(context, FABActivity.class);
+                Intent intent= new Intent(getActivity(), NotificationActivity.class);
                 startActivity(intent);
                 break;
         }

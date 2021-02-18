@@ -36,7 +36,7 @@ public class Tab05 extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         MenuInflater menuInflater= getActivity().getMenuInflater();
-        menuInflater.inflate(R.menu.tab01_menu, menu);
+        menuInflater.inflate(R.menu.tab05, menu);
     }
 
 }

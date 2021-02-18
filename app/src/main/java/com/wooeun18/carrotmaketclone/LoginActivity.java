@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void clickBtn(View view) {
 
+//        Toast.makeText(this, "dd", Toast.LENGTH_SHORT).show();
         //처음이거나 사ㅣ진이 변경되었다면
         if (isFirst || isChanged){
             //닉네임과 프로필 이미지를 Firebase storage와 DB 에 저장 후 채팅화면으로 이동 - 서버에 저장해야 다른폰에서 이미지가 보여짐 .

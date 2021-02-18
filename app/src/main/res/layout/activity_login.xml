@@ -16,6 +16,7 @@
         android:gravity="center"
         android:inputType="text"
         android:layout_centerInParent="true"
+        android:background="@drawable/et_bg"
         android:padding="8dp"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -25,7 +26,7 @@
         android:layout_above="@id/et"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/ic_person_24"
         android:clickable="true"
         android:onClick="clickImage"/>
 
@@ -33,9 +34,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="확 인"
+        android:textColor="#FF333333"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="16dp"
+        android:backgroundTint="#03A9F4"
         android:onClick="clickBtn"/>
 
 </RelativeLayout>

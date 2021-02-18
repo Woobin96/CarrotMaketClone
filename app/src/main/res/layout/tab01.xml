@@ -21,13 +21,14 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/appbar"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"/>
-
+        android:orientation="vertical" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -37,6 +38,8 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="12dp"
         android:backgroundTint="#2196F3"
+        android:clickable="true"
         android:src="@drawable/ic_baseline_add_24"/>
+
 
 </RelativeLayout>

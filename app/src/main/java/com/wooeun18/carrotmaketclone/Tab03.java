@@ -1,5 +1,6 @@
 package com.wooeun18.carrotmaketclone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -37,7 +38,23 @@ public class Tab03 extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         MenuInflater menuInflater= getActivity().getMenuInflater();
-        menuInflater.inflate(R.menu.tab01_menu, menu);
+        menuInflater.inflate(R.menu.tab03, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id= item.getItemId();
+        switch (id){
+            case R.id.tab01_1 :
+                break;
+            case R.id.tab01_2:
+                Intent intent= new Intent(getActivity(), NotificationActivity.class);
+                startActivity(intent);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

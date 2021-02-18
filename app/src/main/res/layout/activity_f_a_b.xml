@@ -6,11 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".FABActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="알림"
-        android:textSize="50sp"
-        android:layout_centerInParent="true"/>
+        android:background="@drawable/bnv">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="중고거래 글쓰기"
+                    android:textColor="#FF333333"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="확인"
+                    android:layout_marginRight="8dp"
+                    android:onClick="clicktv"
+                    android:layout_alignParentEnd="true"/>
+
+
+            </RelativeLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appbar"
+        android:layout_margin="8dp"
+        android:hint="글 제목"
+        android:inputType="textMultiLine"
+        android:maxLength="20"
+        android:maxLines="1"/>
+
+    <EditText
+        android:id="@+id/et_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_title"
+        android:layout_margin="8dp"
+        android:hint="가격 입력"
+        android:inputType="number"
+        android:maxLength="15"
+        android:ems="15"
+        android:maxLines="1"/>
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/et_money"
+        android:src="@drawable/ic_camera_24"
+        android:onClick="clickBtn2" />
+
+    <EditText
+        android:id="@+id/et_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="게시글 내용 "
+        android:layout_below="@id/iv"
+        android:background="@drawable/bnv"
+        android:layout_margin="8dp"
+        android:gravity="top"/>
+
 
 </RelativeLayout>

@@ -38,6 +38,7 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="12dp"
         android:backgroundTint="#2196F3"
+        android:clickable="true"
         android:src="@drawable/ic_pen_24"/>
 
 </RelativeLayout>
