@@ -33,7 +33,6 @@ public class FABActivity extends AppCompatActivity {
 
     EditText etTitle, etMoney, etMsg;
 
-    String imgPath; //TODO ex83
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

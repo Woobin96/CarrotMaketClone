@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_person_24"/>
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_below="@id/civ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tes Test Test "/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="265dp"
+        android:layout_below="@id/tv_msg"
+        app:cardCornerRadius="8dp">
+
+        <ImageView
+            android:id="@+id/iv_msg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/moana02"
+            android:scaleType="centerCrop"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FF888888"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
