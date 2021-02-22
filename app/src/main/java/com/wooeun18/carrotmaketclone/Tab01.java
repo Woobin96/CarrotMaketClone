@@ -3,6 +3,7 @@ package com.wooeun18.carrotmaketclone;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,9 +37,7 @@ public class Tab01 extends Fragment {
 
     RecyclerView recyclerView;
     Tab01Adapter adapter;
-    ArrayList<Item01> items= new ArrayList<Item01>();
-
-    TextView tv;
+    ArrayList<FAB01> items= new ArrayList<FAB01>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,21 +50,15 @@ public class Tab01 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.tab01, container, false);
+
         Toolbar toolbar= view.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-
-//        items.add(new Item01("aaa", "12"));
-//        items.add(new Item01("aaa", "12"));
-//        items.add(new Item01("aaa", "12"));
-//        items.add(new Item01("aaa", "12"));
-//        items.add(new Item01("aaa", "12"));
-//        items.add(new Item01("aaa", "12"));
-
 
         fab= view.findViewById(R.id.fab);
 
         recyclerView= view.findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true); //사이즈 맞추는거 .
+
         RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -86,14 +79,14 @@ public class Tab01 extends Fragment {
 
         //데이터베이스의 최상위(root) 노드 참조객체 가져오기 .
         DatabaseReference rootRef= firebaseDatabase.getReference();
-        rootRef.child("FAB01").addChildEventListener(new ChildEventListener() {
+        rootRef.child("FAB01").addChildEventListener(new ChildEventListener() { // ChildEventListener를 써야 중복되지 않고 나옴
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    Item01 item01 = snapshot.getValue(Item01.class);
+                    FAB01 item01 = snapshot.getValue(FAB01.class);
+                Log.i("AAA", item01.img);
 
                     items.add(0,item01);
                     adapter.notifyItemInserted(items.size());
-
             }
 
             @Override

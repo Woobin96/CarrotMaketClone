@@ -1,6 +1,7 @@
 package com.wooeun18.carrotmaketclone;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,7 +38,7 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater= LayoutInflater.from(context);
-        View itemviewe= inflater.inflate(R.layout.activity_f_a_b02,parent, false);
+        View itemviewe= inflater.inflate(R.layout.item02,parent, false);
         VH vh= new VH(itemviewe);
         return vh;
     }
@@ -48,7 +50,8 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
 
         //이미지 설정 [DB에는 이미지경로가 "./uploads/IMG_20210240_moana01.jpg" 임]
         //안드로이드에서는 서버(닷홈)의 전체주소가 필요하기에
-        String imgUrl= "http://binwoo.dothome.co.kr/Bluemaket/" + item.file;
+        String imgUrl= "http://binwoo.dothome.co.kr/Bluemaket/" + item.img;
+//        Log.i("Log", imgUrl);
         Glide.with(context).load(imgUrl).into(holder.iv);
 
         holder.tvMsg.setText(item.msg);
@@ -63,46 +66,17 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
     class VH extends RecyclerView.ViewHolder{
 
         ImageView iv;
+        CircleImageView civ;
         TextView tvMsg;
 
         public VH(@NonNull View itemView) {
             super(itemView);
 
+            civ= itemView.findViewById(R.id.civ);
             iv= itemView.findViewById(R.id.iv_msg);
             tvMsg= itemView.findViewById(R.id.tv_msg);
 
-            int poi= getLayoutPosition();
-            Item02 item= items.get(poi);
-
-            //DB에 새로운 Data를 인서트하는 것이 아니라 바뀌도록 업데이트를 해야함 .
-            Retrofit retrofit= RetrofitHelper.getRetrofitInstanceGson();
-            RetrofitService retrofitService= retrofit.create(RetrofitService.class);
-            Call<Item02> call= retrofitService.updateData("updateFavor.php",item);
-            call.enqueue(new Callback<Item02>() {
-                @Override
-                public void onResponse(Call<Item02> call, Response<Item02> response) {
-                    Toast.makeText(context, "저장", Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onFailure(Call<Item02> call, Throwable t) {
-                    Toast.makeText(context, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-                }
-            }
-        }//Market
-
-
-
-
-
-
-
-
-
-
-
-
+        }
+    }
+}
 

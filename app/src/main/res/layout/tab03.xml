@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title #1"
+                android:text="내 근처 가게 #1"
                 android:textStyle="bold"
                 android:textColor="#FF333333"
                 android:padding="8dp"
@@ -60,7 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title #2"
+                android:text="내 근처 가게 #2"
                 android:textStyle="bold"
                 android:textColor="#FF333333"
                 android:padding="8dp"
@@ -76,7 +76,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title #3"
+                android:text="내 근처 가게 #3"
                 android:textStyle="bold"
                 android:textColor="#FF333333"
                 android:padding="8dp"

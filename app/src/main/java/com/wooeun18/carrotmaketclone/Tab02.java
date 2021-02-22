@@ -34,10 +34,13 @@ import retrofit2.Retrofit;
 public class Tab02 extends Fragment {
 
     ArrayList<Item02> items =new ArrayList<Item02>();
+
     FloatingActionButton fab;
+
     RecyclerView rec;
     Tab02Adapter adapter;
     SwipeRefreshLayout refreshLayout;
+
     Toolbar toolbar;
 
     @Override
@@ -64,13 +67,13 @@ public class Tab02 extends Fragment {
             public void onRefresh() {
                 loadData();
                 refreshLayout.setRefreshing(false);
-
-                String[] permissions= new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                if (ActivityCompat.checkSelfPermission(getActivity(), permissions[0]) == PackageManager.PERMISSION_DENIED){
-                    ActivityCompat.requestPermissions(getActivity(), permissions, 100);
-                }
             }
         });
+
+        String[] permissions= new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (ActivityCompat.checkSelfPermission(getActivity(), permissions[0]) == PackageManager.PERMISSION_DENIED){
+            ActivityCompat.requestPermissions(getActivity(), permissions, 100);
+        }
 
         //+ 버튼
         fab.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +84,10 @@ public class Tab02 extends Fragment {
             }
         });
         return view;
+
     }
+
+
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
@@ -100,11 +106,16 @@ public class Tab02 extends Fragment {
             case R.id.tab02_2:
                 Intent intent= new Intent(getActivity(), NotificationActivity.class);
                 startActivity(intent);
-                Toast.makeText(getActivity(), "ddddd", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);
     } //메뉴 클릭
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadData();
+    }
 
     void loadData(){
         Retrofit retrofit= RetrofitHelper.getRetrofitInstanceGson();
@@ -117,7 +128,6 @@ public class Tab02 extends Fragment {
                 items.clear();
                 adapter.notifyDataSetChanged();
 
-                //결과를 받아온 ArrayList<MarketItem>을 추가
                 ArrayList<Item02> list= response.body();
                 for(Item02 item : list){
                     items.add(0, item);
@@ -130,6 +140,7 @@ public class Tab02 extends Fragment {
             }
         });
     }//load
+
 }
 
 

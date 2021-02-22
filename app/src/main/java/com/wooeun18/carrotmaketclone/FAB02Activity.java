@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -65,7 +66,7 @@ public class FAB02Activity extends AppCompatActivity {
                 //이미지 uri 를 절대 주소로 변경해야 파일 업로드가 가능함 .
                 //Uri -> 절대경로
                 imgPath= getRealPathFromUri(uri);
-                new AlertDialog.Builder(this).setMessage(imgPath).create().show();
+                //new AlertDialog.Builder(this).setMessage(imgPath).create().show();
 
             }//if2
         }//if1
@@ -107,11 +108,13 @@ public class FAB02Activity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 String s= response.body();
                 Toast.makeText(FAB02Activity.this, ""+s, Toast.LENGTH_SHORT).show();
+                Log.i("tag",s);
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Toast.makeText(FAB02Activity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.i("tag","에러 :"+t.getMessage());
 
             }
         });

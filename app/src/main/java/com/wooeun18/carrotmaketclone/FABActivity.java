@@ -32,7 +32,7 @@ public class FABActivity extends AppCompatActivity {
     Uri imgUri;
 
     EditText etTitle, etMoney, etMsg;
-
+    String tviv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +73,11 @@ public class FABActivity extends AppCompatActivity {
         DatabaseReference databaseReference= firebaseDatabase.getReference();
 
         FirebaseStorage firebaseStorage= FirebaseStorage.getInstance();
+
         SimpleDateFormat sdf= new SimpleDateFormat("yyyyMMddhhmmss");
         String fileName= sdf.format(new Date()) + ".png";//원본파일명을 알려면 절대주소까지 구해야해서 시간상 무조건 png 로함 jpg도 문제없음
         StorageReference imgRef= firebaseStorage.getReference("uploads/"+ fileName); //폴더가 없으면 알아서 만들어줌
+
         UploadTask uploadTask = imgRef.putFile(imgUri);
         uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -85,8 +87,9 @@ public class FABActivity extends AppCompatActivity {
                 imgRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                         String iv= uri.toString();
-                         FAB01 fab01 = new FAB01(title, msg, money, iv);
+                         tviv= uri.toString();
+                         FAB01 fab01 = new FAB01(title, msg, money, tviv);
+
                         DatabaseReference fab01a= databaseReference.child("FAB01");
                         fab01a.push().setValue(fab01);
 
@@ -111,17 +114,3 @@ public class FABActivity extends AppCompatActivity {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

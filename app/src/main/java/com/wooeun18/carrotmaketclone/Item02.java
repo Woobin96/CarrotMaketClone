@@ -2,16 +2,16 @@ package com.wooeun18.carrotmaketclone;
 
 public class Item02 {
 
-    String file;
+    String img;
     String msg;
     String data;
 
     public Item02() {
     }
 
-    public Item02(String msg, String data, String file) {
+    public Item02(String msg, String data, String img) {
         this.msg = msg;
         this.data = data;
-        this.file = file;
+        this.img = img;
     }
 }

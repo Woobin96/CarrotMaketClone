@@ -17,13 +17,13 @@ import retrofit2.http.Path;
 public interface RetrofitService {
 
     @Multipart
-    @POST("/Bluemaket/aaa.php")
+    @POST("/Bluemaket/insertDB.php")
     Call<String> postDataToServer(@PartMap Map<String, String> dataPart, @Part MultipartBody.Part filePart);
 
     @GET("/Bluemaket/loadDB.php")
     Call<ArrayList<Item02>> loadDataFromService();
 
-    @PUT("/Retrofit/fileName")
+    @PUT("/Bluemaket/{fileName}")
     Call<Item02> updateData(@Path("fileName") String fileName, @Body Item02 item);
 
 }

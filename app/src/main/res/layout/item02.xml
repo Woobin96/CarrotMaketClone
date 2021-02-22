@@ -17,11 +17,15 @@
         android:layout_below="@id/civ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tes Test Test "/>
+        android:textStyle="bold"
+        android:textColor="#FF333333"
+        android:textSize="16sp"
+        android:text="Tes Test Test "
+        android:layout_marginBottom="8dp"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="265dp"
+        android:layout_height="250dp"
         android:layout_below="@id/tv_msg"
         app:cardCornerRadius="8dp">
 
