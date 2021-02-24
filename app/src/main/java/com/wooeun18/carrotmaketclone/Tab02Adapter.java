@@ -1,6 +1,8 @@
 package com.wooeun18.carrotmaketclone;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -24,10 +27,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
 
     Context context;
     ArrayList<Item02> items;
+    CircleImageView civ;
+    TextView tvName;
 
     public Tab02Adapter(Context context, ArrayList<Item02> items) {
         this.context = context;
@@ -40,6 +47,16 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
         LayoutInflater inflater= LayoutInflater.from(context);
         View itemviewe= inflater.inflate(R.layout.item02,parent, false);
         VH vh= new VH(itemviewe);
+
+        civ= itemviewe.findViewById(R.id.civ);
+        tvName= itemviewe.findViewById(R.id.name);
+
+        loadDB();
+        if (G.profileUrl!=null) {
+            tvName.setText(G.nickName);
+            Picasso.get().load(G.profileUrl).into(civ);
+        }
+
         return vh;
     }
 
@@ -55,6 +72,12 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
         Glide.with(context).load(imgUrl).into(holder.iv);
 
         holder.tvMsg.setText(item.msg);
+    }
+
+    void loadDB(){
+        SharedPreferences pref= context.getSharedPreferences("account", MODE_PRIVATE);
+        G.nickName= pref.getString("nickName", null);
+        G.profileUrl= pref.getString("profileUrl", null);
     }
 
     @Override
@@ -75,6 +98,27 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
             civ= itemView.findViewById(R.id.civ);
             iv= itemView.findViewById(R.id.iv_msg);
             tvMsg= itemView.findViewById(R.id.tv_msg);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int poi= getAdapterPosition();
+
+                    String civ= items.get(poi).civ;
+                    String name= items.get(poi).name;
+                    String msg= items.get(poi).msg;
+                    String img= items.get(poi).img;
+
+                    Intent intent= new Intent(context, Tab02DetailsActivity.class);
+                    intent.putExtra("civ", civ);
+                    intent.putExtra("name", name);
+                    intent.putExtra("msg", msg);
+                    intent.putExtra("img", img);
+
+                    context.startActivity(intent);
+
+                }
+            });
 
         }
     }

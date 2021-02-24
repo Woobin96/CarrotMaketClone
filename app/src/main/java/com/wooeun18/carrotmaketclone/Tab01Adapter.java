@@ -1,6 +1,7 @@
 package com.wooeun18.carrotmaketclone;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -47,6 +49,7 @@ public class Tab01Adapter extends RecyclerView.Adapter {
         vh.tvTitle.setText(item01.title);
         vh.tvM.setText(item01.money + "원");
 
+        //String 였음
         String iv= item01.img;
         Glide.with(context).load(iv).into(vh.tviv);
 //        Log.i("AAA",iv);
@@ -75,11 +78,22 @@ public class Tab01Adapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View v) {
                     int poi= getAdapterPosition();
-                    FAB01 item01= items.get(poi);
+
+                    String img= items.get(poi).img;
+                    String title= items.get(poi).title;
+                    String msg= items.get(poi).msg;
+                    String money= items.get(poi).money;
+
+                    Intent intent= new Intent(context, Tab01DetailsActivity.class);
+                    intent.putExtra("img", img);
+                    intent.putExtra("title", title);
+                    intent.putExtra("msg", msg);
+                    intent.putExtra("money", money);
+
+                    context.startActivity(intent);
 
                     String aaa= items.get(poi).img;
-
-                    Toast.makeText(context, ""+aaa, Toast.LENGTH_LONG).show();
+//                    Toast.makeText(context, ""+aaa, Toast.LENGTH_LONG).show();
                 }
             });
         }

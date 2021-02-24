@@ -3,6 +3,7 @@ package com.wooeun18.carrotmaketclone;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,14 +23,19 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class Tab02 extends Fragment {
 
@@ -40,6 +46,7 @@ public class Tab02 extends Fragment {
     RecyclerView rec;
     Tab02Adapter adapter;
     SwipeRefreshLayout refreshLayout;
+    CircleImageView civ;
 
     Toolbar toolbar;
 
@@ -53,11 +60,13 @@ public class Tab02 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.tab02, container, false);
+
         toolbar= view.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
         fab= view.findViewById(R.id.fab);
 
+        civ= view.findViewById(R.id.civ);
         rec= view.findViewById(R.id.rec);
         adapter= new Tab02Adapter(getActivity(), items);
         rec.setAdapter(adapter);
@@ -83,6 +92,8 @@ public class Tab02 extends Fragment {
                 startActivity(intent);
             }
         });
+
+
         return view;
 
     }
@@ -116,8 +127,8 @@ public class Tab02 extends Fragment {
         super.onResume();
         loadData();
     }
-
     void loadData(){
+
         Retrofit retrofit= RetrofitHelper.getRetrofitInstanceGson();
         RetrofitService retrofitService= retrofit.create(RetrofitService.class);
         Call<ArrayList<Item02>> call= retrofitService.loadDataFromService();

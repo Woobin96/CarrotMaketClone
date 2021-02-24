@@ -20,6 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.ChildEventListener;
@@ -39,6 +40,8 @@ public class Tab01 extends Fragment {
     Tab01Adapter adapter;
     ArrayList<FAB01> items= new ArrayList<FAB01>();
 
+    SwipeRefreshLayout swipeRefreshLayout;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,8 @@ public class Tab01 extends Fragment {
 
         fab= view.findViewById(R.id.fab);
 
+        swipeRefreshLayout= view.findViewById(R.id.sww);
+
         recyclerView= view.findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true); //사이즈 맞추는거 .
 
@@ -64,6 +69,12 @@ public class Tab01 extends Fragment {
 
         adapter= new Tab01Adapter(getActivity(), items);
         recyclerView.setAdapter(adapter);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         //+ 버튼
         fab.setOnClickListener(new View.OnClickListener() {

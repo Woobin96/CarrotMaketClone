@@ -4,23 +4,86 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bnv">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            app:menu="@menu/tab05"
-            app:title="내 설정">
+            android:orientation="vertical">
 
-        </androidx.appcompat.widget.Toolbar>
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bnv">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    app:menu="@menu/tab05"
+                    app:title="내 설정">
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/moana02"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_below="@id/appbar"/>
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이름"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@id/civ"
+                    android:layout_below="@id/appbar"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="8dp"/>
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/civ"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#03A9F4"
+                android:textColor="@color/black"
+                android:text="프로필 설정"/>
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FF888888"
+                android:layout_marginTop="8dp"
+                android:layout_below="@id/btn"/>
+
+<!--            메뉴 -->
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
 
 
 </RelativeLayout>
