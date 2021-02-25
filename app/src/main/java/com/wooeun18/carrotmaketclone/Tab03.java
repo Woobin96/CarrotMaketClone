@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -97,9 +98,10 @@ public class Tab03 extends Fragment {
 
         int id= item.getItemId();
         switch (id){
-            case R.id.tab01_1 :
+            case R.id.tab03_1 :
+                Toast.makeText(getActivity(), "작성", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.tab01_2:
+            case R.id.tab03_2:
                 Intent intent= new Intent(getActivity(), NotificationActivity.class);
                 startActivity(intent);
                 break;

@@ -51,6 +51,8 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
         civ= itemviewe.findViewById(R.id.civ);
         tvName= itemviewe.findViewById(R.id.name);
 
+
+
         loadDB();
         if (G.profileUrl!=null) {
             tvName.setText(G.nickName);
@@ -72,6 +74,7 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
         Glide.with(context).load(imgUrl).into(holder.iv);
 
         holder.tvMsg.setText(item.msg);
+//        holder.tvdate.setText(item.data);
     }
 
     void loadDB(){
@@ -90,7 +93,7 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
 
         ImageView iv;
         CircleImageView civ;
-        TextView tvMsg;
+        TextView tvMsg, tvdate;
 
         public VH(@NonNull View itemView) {
             super(itemView);
@@ -98,6 +101,9 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
             civ= itemView.findViewById(R.id.civ);
             iv= itemView.findViewById(R.id.iv_msg);
             tvMsg= itemView.findViewById(R.id.tv_msg);
+            tvdate= itemView.findViewById(R.id.tv_date);
+
+            Toast.makeText(context, ""+tvdate, Toast.LENGTH_SHORT).show();
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -108,12 +114,14 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
                     String name= items.get(poi).name;
                     String msg= items.get(poi).msg;
                     String img= items.get(poi).img;
+                    String date= items.get(poi).data;
 
                     Intent intent= new Intent(context, Tab02DetailsActivity.class);
                     intent.putExtra("civ", civ);
                     intent.putExtra("name", name);
                     intent.putExtra("msg", msg);
                     intent.putExtra("img", img);
+                    intent.putExtra("date", date);
 
                     context.startActivity(intent);
 

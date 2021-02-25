@@ -60,11 +60,9 @@ public class Tab01DetailsActivity extends AppCompatActivity {
 
                 try {
                     URL url= new URL(imgUrl);
-
                     InputStream is= url.openStream();
 
                     final Bitmap bm= BitmapFactory.decodeStream(is);
-
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {

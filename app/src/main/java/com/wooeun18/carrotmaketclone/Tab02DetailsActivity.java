@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
@@ -27,7 +28,7 @@ public class Tab02DetailsActivity extends AppCompatActivity {
     TextView tvName, tvMsg;
     CircleImageView civ;
     ImageView iv;
-
+    String img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,27 +41,31 @@ public class Tab02DetailsActivity extends AppCompatActivity {
         iv= findViewById(R.id.det_img);
 
         Intent intent= getIntent();
-        String img= intent.getStringExtra("img");
+        img= intent.getStringExtra("img");
 
-        Glide.with(this).load(img).into(iv);
+//        Picasso.get().load(img).into(iv);
 
         String name= intent.getStringExtra("name");
         String msg=intent.getStringExtra("msg");
+
+        img= img.replace("./","/");
+//        img= img.replace(".png",".PNG");
+
 
         Thread t= new Thread(){
             @Override
             public void run() {
 
-                String imgUrl= img;
-
+                String imgURL= "http://binwoo.dothome.co.kr/Bluemaket"+img;
                 try {
-                    URL url= new URL(imgUrl);
+                    URL url= new URL(imgURL);
                     InputStream is= url.openStream();
 
                     final Bitmap bm= BitmapFactory.decodeStream(is);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+//                            Toast.makeText(Tab02DetailsActivity.this, ""+img, Toast.LENGTH_LONG).show();
                             iv.setImageBitmap(bm);
                         }
                     });
@@ -72,6 +77,7 @@ public class Tab02DetailsActivity extends AppCompatActivity {
                 }
             }
         };
+        t.start();
 
         loadDB();
         if (G.profileUrl != null){
@@ -79,7 +85,6 @@ public class Tab02DetailsActivity extends AppCompatActivity {
             Picasso.get().load(G.profileUrl).into(civ);
         }
         tvMsg.setText(msg);
-
     }
 
     void loadDB(){
@@ -89,17 +94,5 @@ public class Tab02DetailsActivity extends AppCompatActivity {
     }
 
 
-    //업 버튼 클릭 반응하기 - 사실 업버든은 일종의 옵션메뉴아이템과 같은 것 .
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        if(item.getItemId()== android.R.id.home){
-            //Toast.makeText(this, "home", Toast.LENGTH_SHORT).show();
-            //디바이스의 뒤로가기 벝튼(back버튼) 을 누른것 처럶 .,
-            //finish(); //그냥 엑티비티를 종료시키는 메소드 (back버튼과 살짝 다름)
-            super.onBackPressed(); //엑티비티의 백 버튼 클릭시 발동하는 콜백 메소드를 강제로 호출 .
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 }//1

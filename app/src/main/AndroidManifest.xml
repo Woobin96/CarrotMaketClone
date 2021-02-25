@@ -3,15 +3,12 @@
     package="com.wooeun18.carrotmaketclone">
     <!-- 2.맵 퍼미션 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
-    <!--        3.그래픽 라이브러리 설정 OpenGL-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 3.그래픽 라이브러리 설정 OpenGL -->
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true"/>
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarrotMaketClone"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Tab02DetailsActivity"></activity>
+        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".Tab02DetailsActivity" />
         <activity android:name=".MapActivity" />
         <activity android:name=".Tab01DetailsActivity" />
         <activity android:name=".FAB02Activity" />
@@ -38,27 +36,20 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan" />
-
-<!--        0. implementation 'com.google.android.gms:play-services-maps:17.0.0'
-            라이브러리를 먼저 설치 하기 .-->
-
-<!--        1. 구글 SDK 버전번호 명시 -->
+        <!--
+        0. implementation 'com.google.android.gms:play-services-maps:17.0.0'
+            라이브러리를 먼저 설치 하기 .
+        -->
+        <!-- 1. 구글 SDK 버전번호 명시 -->
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
-<!--        4. Http 에 대한 설정  -->
+            android:value="@integer/google_play_services_version" /> <!-- 4. Http 에 대한 설정 -->
         <uses-library
             android:name="org.apache.http.legacy"
-            android:required="false" />
-
-<!--        5. google API Key 등록-->
+            android:required="false" /> <!-- 5. google API Key 등록 -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBgjTQSAEdR2am9jNWyTnBv_OBCbQ_0RIc"/>
-
-
-
+            android:value="AIzaSyBgjTQSAEdR2am9jNWyTnBv_OBCbQ_0RIc" />
     </application>
 
 </manifest>

@@ -25,13 +25,22 @@
     <TextView
         android:id="@+id/tv_msg"
         android:layout_below="@id/civ"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textColor="#FF333333"
         android:textSize="16sp"
         android:text="Tes Test Test "
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2021/02/25 15:42:02"
+        android:layout_alignParentEnd="true"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

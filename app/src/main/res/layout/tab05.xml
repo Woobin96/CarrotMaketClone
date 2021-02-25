@@ -61,12 +61,13 @@
 
             <Button
                 android:id="@+id/btn"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/civ"
                 android:layout_marginTop="8dp"
                 android:backgroundTint="#03A9F4"
                 android:textColor="@color/black"
+                android:layout_gravity="center"
                 android:text="프로필 설정"/>
 
             <View

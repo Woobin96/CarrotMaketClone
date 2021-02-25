@@ -113,6 +113,7 @@ public class Tab02 extends Fragment {
         int id= item.getItemId();
         switch (id){
             case R.id.tab02_1 :
+                Toast.makeText(getActivity(), "검색", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tab02_2:
                 Intent intent= new Intent(getActivity(), NotificationActivity.class);

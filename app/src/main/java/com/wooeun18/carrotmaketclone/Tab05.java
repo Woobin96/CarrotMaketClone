@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -81,9 +82,9 @@ public class Tab05 extends Fragment {
                 if(position == 0 || position == 1){
                     Intent intent= new Intent(getActivity(),MapActivity.class);
                     startActivity(intent);
+                }else {
+                    Toast.makeText(getActivity(), item.menu+"\nComing soon", Toast.LENGTH_SHORT).show();
                 }
-
-                Toast.makeText(getActivity(), item.menu+"\nComing soon", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -118,8 +119,18 @@ public class Tab05 extends Fragment {
         menuInflater.inflate(R.menu.tab05, menu);
     }
 
-
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id= item.getItemId();
+        switch (id){
+            case R.id.tab05_1:
+                Toast.makeText(getActivity(), "설정", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), SettingActivity.class));
+                break;
+        }
+        
+        return super.onOptionsItemSelected(item);
+    }
 }
 
 
