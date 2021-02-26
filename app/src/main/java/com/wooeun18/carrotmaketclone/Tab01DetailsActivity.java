@@ -2,6 +2,7 @@ package com.wooeun18.carrotmaketclone;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -38,7 +39,6 @@ public class Tab01DetailsActivity extends AppCompatActivity {
         iv= findViewById(R.id.tab01_imgs);
 
 
-
         Intent intent= getIntent();
         String img= intent.getStringExtra("img");
 
@@ -55,7 +55,6 @@ public class Tab01DetailsActivity extends AppCompatActivity {
         Thread t= new Thread(){
             @Override
             public void run() {
-
                 String imgUrl= img;
 
                 try {
@@ -80,18 +79,5 @@ public class Tab01DetailsActivity extends AppCompatActivity {
         tvTitle.setText(title);
         tvMsg.setText(msg);
         tvMoney.setText(money);
-
-//        getSupportActionBar().setTitle("");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//
-//        if (item.getItemId() == android.R.id.home){
-//            super.onBackPressed();
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 }

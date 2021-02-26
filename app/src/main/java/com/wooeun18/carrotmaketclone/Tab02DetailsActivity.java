@@ -2,6 +2,7 @@ package com.wooeun18.carrotmaketclone;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -29,6 +30,7 @@ public class Tab02DetailsActivity extends AppCompatActivity {
     CircleImageView civ;
     ImageView iv;
     String img;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +94,5 @@ public class Tab02DetailsActivity extends AppCompatActivity {
         G.nickName= pref.getString("nickName", null);
         G.profileUrl= pref.getString("profileUrl", null);
     }
-
-
 
 }//1

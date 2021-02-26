@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FF333333"
-        android:textSize="50sp"
-        android:text="알림창"/>
+        android:textSize="30sp"
+        android:text="알림 없음"/>
 
 </RelativeLayout>

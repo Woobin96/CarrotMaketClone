@@ -39,7 +39,6 @@
         android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2021/02/25 15:42:02"
         android:layout_alignParentEnd="true"/>
 
     <androidx.cardview.widget.CardView

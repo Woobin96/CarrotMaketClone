@@ -103,7 +103,7 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
             tvMsg= itemView.findViewById(R.id.tv_msg);
             tvdate= itemView.findViewById(R.id.tv_date);
 
-            Toast.makeText(context, ""+tvdate, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context, ""+tvdate, Toast.LENGTH_SHORT).show();
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

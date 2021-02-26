@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarrotMaketClone"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".AnnouncementActivity"></activity>
+        <activity android:name=".SettingActivity" />
         <activity android:name=".Tab02DetailsActivity" />
         <activity android:name=".MapActivity" />
         <activity android:name=".Tab01DetailsActivity" />

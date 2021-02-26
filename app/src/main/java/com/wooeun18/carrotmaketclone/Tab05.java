@@ -61,15 +61,15 @@ public class Tab05 extends Fragment {
         tvName= view.findViewById(R.id.tv_name);
         btn= view.findViewById(R.id.btn);
 
-        items.add(new Item05("내 동네 설정", R.drawable.ic_place_24));
-        items.add(new Item05("동네 인증하기", R.drawable.ic_fixed_24));
-        items.add(new Item05("키워드 알림", R.drawable.ic_loyalty_24));
-        items.add(new Item05("모아보기", R.drawable.ic_list_24));
-        items.add(new Item05("동네생활 글", R.drawable.ic_long_24));
-        items.add(new Item05("친구 초대", R.drawable.ic_near_me_24));
-        items.add(new Item05("공유", R.drawable.ic_plot_24));
-        items.add(new Item05("공지사항", R.drawable.ic_mic_24));
-        items.add(new Item05("앱 설정", R.drawable.ic_settings_24));
+        items.add(new Item05("내 동네 설정", R.drawable.ic_place_24));//0
+        items.add(new Item05("동네 인증하기", R.drawable.ic_fixed_24));//1
+        items.add(new Item05("키워드 알림", R.drawable.ic_loyalty_24));//2
+        items.add(new Item05("모아보기", R.drawable.ic_list_24));//3
+        items.add(new Item05("동네생활 글", R.drawable.ic_long_24));//4
+        items.add(new Item05("친구 초대", R.drawable.ic_near_me_24));//5
+        items.add(new Item05("공유", R.drawable.ic_plot_24));//6
+        items.add(new Item05("공지사항", R.drawable.ic_mic_24));//7
+        items.add(new Item05("앱 설정", R.drawable.ic_settings_24));//8
 
         listView.setAdapter(adapter);
 
@@ -80,11 +80,29 @@ public class Tab05 extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Item05 item= items.get(position);
                 if(position == 0 || position == 1){
+                    //맵
                     Intent intent= new Intent(getActivity(),MapActivity.class);
                     startActivity(intent);
+
+                }else if (position == 6 || position == 5){
+                    //공유 , 친구 초대
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    startActivity(Intent.createChooser(intent, "친구에게 공유하기"));
+
+                }else if (position == 7){
+                    startActivity(new Intent(getActivity(), AnnouncementActivity.class));
+
+                }else if (position == 8){
+                    //앱 설정
+                    startActivity(new Intent(getActivity(), SettingActivity.class));
+
                 }else {
+                    //나머지
                     Toast.makeText(getActivity(), item.menu+"\nComing soon", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
 
@@ -101,35 +119,12 @@ public class Tab05 extends Fragment {
             tvName.setText(G.nickName);
             Picasso.get().load(G.profileUrl).into(civ);
         }
-
-
         return view;
     }
-
     public void loadDB(){
         SharedPreferences pref= getActivity().getSharedPreferences("account", MODE_PRIVATE);
         G.nickName= pref.getString("nickName", null);
         G.profileUrl= pref.getString("profileUrl", null);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        MenuInflater menuInflater= getActivity().getMenuInflater();
-        menuInflater.inflate(R.menu.tab05, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id= item.getItemId();
-        switch (id){
-            case R.id.tab05_1:
-                Toast.makeText(getActivity(), "설정", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getActivity(), SettingActivity.class));
-                break;
-        }
-        
-        return super.onOptionsItemSelected(item);
     }
 }
 

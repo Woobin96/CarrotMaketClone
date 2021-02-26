@@ -8,6 +8,7 @@
     android:padding="8dp"
     tools:context=".Tab01DetailsActivity">
 
+
     <TextView
         android:id="@+id/tv_Title"
         android:layout_width="wrap_content"

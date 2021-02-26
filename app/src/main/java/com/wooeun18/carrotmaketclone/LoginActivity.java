@@ -54,7 +54,6 @@ public class LoginActivity extends AppCompatActivity {
             //처음이 아니네
             isFirst= false;
         }
-
     }
 
 
@@ -94,7 +93,6 @@ public class LoginActivity extends AppCompatActivity {
             //닉네임과 프로필 이미지를 Firebase storage와 DB 에 저장 후 채팅화면으로 이동 - 서버에 저장해야 다른폰에서 이미지가 보여짐 .
             saveData();
         }else {
-            //저장 없이 곧바로 채팅화면으로 전혼
             Intent intent= new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -107,7 +105,6 @@ public class LoginActivity extends AppCompatActivity {
         //et 에 작성한 닉네임 바로 가져오기 .
         G.nickName= et.getText().toString();
 
-        //이미지 선택으로 혹시 안하면 채팅 못하도록
         if (imgUri == null){
             Toast.makeText(this, "사진선택 해주세요", Toast.LENGTH_SHORT).show();
             return;
