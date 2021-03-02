@@ -10,6 +10,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +32,6 @@ public class Tab02DetailsActivity extends AppCompatActivity {
     CircleImageView civ;
     ImageView iv;
     String img;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,4 +96,12 @@ public class Tab02DetailsActivity extends AppCompatActivity {
         G.profileUrl= pref.getString("profileUrl", null);
     }
 
+    public void cicickTb1(View view) {
+        //토글 하트
+        Toast.makeText(this, "좋아요~~", Toast.LENGTH_SHORT).show();
+    }
+    public void cicickTb2(View view) {
+        //토글 엄지손가락
+        Toast.makeText(this, "최고예요 !", Toast.LENGTH_SHORT).show();
+    }
 }//1

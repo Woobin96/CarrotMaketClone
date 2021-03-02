@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+
     <EditText
         android:id="@+id/et"
         android:layout_width="wrap_content"
@@ -22,11 +23,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="닉네임과 프로필 사진을 넣고 \n확인 눌러주세요."
+        android:text="#입장 방법"
         android:gravity="center"
         android:layout_below="@id/et"
         android:layout_centerInParent="true"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp"
+        android:onClick="clickImg"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv"

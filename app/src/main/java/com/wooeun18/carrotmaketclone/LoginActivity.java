@@ -1,8 +1,10 @@
 package com.wooeun18.carrotmaketclone;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -163,6 +165,20 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void clickImg(View view) {
+        AlertDialog.Builder builder= new AlertDialog.Builder(this);
+        builder.setTitle("입장 방법");
+        builder.setMessage("1. 프로필 사진 넣기 \n 2. 닉네임 입력하기 \n 3. 확인누르기");
+        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        builder.show();
     }
 }//Main
 

@@ -36,14 +36,21 @@
         android:layout_height="1dp"
         android:background="#6B000000"/>
 
-    <TextView
-        android:id="@+id/det_msg"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:text="메세지"
-        android:textColor="#D5000000"
-        android:padding="8dp"
-        android:layout_marginTop="8dp"/>
+        android:layout_height="150dp">
+
+        <TextView
+            android:id="@+id/det_msg"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:text="메세지"
+            android:textColor="#D5000000"
+            android:padding="8dp"
+            android:layout_marginTop="8dp"/>
+
+    </ScrollView>
+
 
     <View
         android:layout_width="match_parent"
@@ -54,9 +61,33 @@
         android:id="@+id/det_img"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="300dp"
         android:scaleType="centerCrop"
         android:src="@drawable/moana02"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="end">
+        <ToggleButton
+            android:id="@+id/tb1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/fav"
+            android:textOn=" "
+            android:textOff=" "
+            android:onClick="cicickTb1"/>
+
+        <ToggleButton
+            android:id="@+id/tb2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/best"
+            android:textOn=" "
+            android:textOff=" "
+            android:onClick="cicickTb2"/>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,9 +1,13 @@
 package com.wooeun18.carrotmaketclone;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -123,7 +127,15 @@ public class Tab02Adapter extends RecyclerView.Adapter<Tab02Adapter.VH> {
                     intent.putExtra("img", img);
                     intent.putExtra("date", date);
 
-                    context.startActivity(intent);
+                    //화면 애니메이션 이거밖에 못하겠음 .
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                        ActivityOptions options= ActivityOptions.makeSceneTransitionAnimation((Activity) context, new Pair<View, String>(iv, "img"));
+                        context.startActivity(intent, options.toBundle());
+                    }else {
+                        context.startActivity(intent);
+                    }
+
+//                    context.startActivity(intent);
 
                 }
             });

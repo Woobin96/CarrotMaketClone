@@ -1,5 +1,8 @@
 package com.wooeun18.carrotmaketclone;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -100,7 +103,16 @@ public class Tab05 extends Fragment {
 
                 }else {
                     //나머지
-                    Toast.makeText(getActivity(), item.menu+"\nComing soon", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), item.menu+"\nComing soon", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder= new AlertDialog.Builder(getActivity());
+                    builder.setMessage(item.menu + "\n Coming soon");
+                    builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    builder.create().show();
                 }
 
             }
